@@ -1,0 +1,25 @@
+CREATE SCHEMA `apartaments` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+
+CREATE TABLE `apartaments`.`apartaments` (
+  `id` INT NOT NULL,
+  `country_code` VARCHAR(2) NOT NULL,
+  `city` VARCHAR(45) NOT NULL,
+  `guests_number` INT NULL,
+  `phone` VARCHAR(45) NULL,
+  `contact_person` VARCHAR(45) NULL,
+  `price` INT NULL,
+  `available` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `country_code_UNIQUE` (`country_code` ASC) VISIBLE);
+  
+  ALTER TABLE `apartaments`.`apartaments` 
+DROP INDEX `country_code_UNIQUE` ;
+;
+
+INSERT INTO `apartaments`.`apartaments` (`id`, `country_code`, `city`, `guests_number`, `phone`, `contact_person`, `price`, `available`) VALUES ('1', 'UA', 'Kharkiv', '4', '333-333-3333', 'Alice Smith', '20', 'yes');
+INSERT INTO `apartaments`.`apartaments` (`id`, `country_code`, `city`, `guests_number`, `phone`, `contact_person`, `price`, `available`) VALUES ('2', 'UA', 'Lviv', '3', '444-444-4444', 'Bob Smith', '25', 'yes');
+INSERT INTO `apartaments`.`apartaments` (`id`, `country_code`, `city`, `guests_number`, `phone`, `contact_person`, `price`, `available`) VALUES ('3', 'ME', 'Budva', '5', '777-777-7777', 'Maria Maria', '50', 'yes');
+INSERT INTO `apartaments`.`apartaments` (`id`, `country_code`, `city`, `guests_number`, `phone`, `contact_person`, `price`, `available`) VALUES ('4', 'US', 'NY', '2', '555-555-5555', 'David McGill', '100', 'yes');
+INSERT INTO `apartaments`.`apartaments` (`id`, `country_code`, `city`, `guests_number`, `phone`, `contact_person`, `price`, `available`) VALUES ('5', 'US', 'NY', '3', '555-555-5555', 'David McGill', '200', 'no');
+INSERT INTO `apartaments`.`apartaments` (`id`, `country_code`, `city`, `guests_number`, `phone`, `contact_person`, `price`, `available`) VALUES ('6', 'US', 'LA', '5', '111-111-1111', 'Isabel Sanchos', '200', 'yes');
+INSERT INTO `apartaments`.`apartaments` (`id`, `country_code`, `city`, `guests_number`, `phone`, `contact_person`, `price`, `available`) VALUES ('7', 'TK', 'Istambul', '2', '222-222-2222', 'Ivan Ivanov', '99', 'yes');
