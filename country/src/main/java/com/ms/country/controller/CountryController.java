@@ -1,6 +1,5 @@
 package com.ms.country.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,17 +39,5 @@ public class CountryController {
 	public String getHello() {
 		return "Hello from country service";
 	}
-	
-	@GetMapping("/hello2")
-	public Country getHello2() {
-		Country result = countryService.findByCountryCode("UA");
-		return result;
-	}
-	
-	@GetMapping("/countryi")
-	public Country getCountryInfo() {
-		Country result = countryService.findByCountryCode("UA");
-		return result;
-	}
-	
+
 }

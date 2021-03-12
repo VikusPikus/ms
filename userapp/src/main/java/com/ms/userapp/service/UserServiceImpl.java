@@ -32,20 +32,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public CountryDto getCountryInfo(String countryCode) {
-		CountryDto result = countryServiceFeignClient.getByCountryCode(countryCode);
-		return result;
-	}
-
-	@Override
-	public ResponseEntity<CountryDto> hello2() {
-		ResponseEntity<CountryDto> result = countryServiceFeignClient.getHello2();
-		return result;
-	}
-
-	@Override
-	public ResponseEntity<CountryDto> getCountryInfo() {
-		ResponseEntity<CountryDto> result = countryServiceFeignClient.getCountryInfo();
+	public ResponseEntity<CountryDto> getCountryInfo(String countryCode) {
+		ResponseEntity<CountryDto> result = countryServiceFeignClient.getByCountryCode(countryCode);
 		return result;
 	}
 	

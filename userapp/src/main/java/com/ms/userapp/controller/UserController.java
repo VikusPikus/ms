@@ -32,9 +32,9 @@ public class UserController {
         return result;
     }
 	
-	@RequestMapping(path = "/country-info")
-    public ResponseEntity<CountryDto> getCountryInfo() {
-		ResponseEntity<CountryDto> result = userService.getCountryInfo();
+	@RequestMapping(path = "/country-info/{countryCode}")
+    public ResponseEntity<CountryDto> getCountryInfo(@PathVariable String countryCode) {
+		ResponseEntity<CountryDto> result = userService.getCountryInfo(countryCode);
         return result;
     }
 	
@@ -44,11 +44,4 @@ public class UserController {
         return result;
     }
 	
-	/*
-	 * @RequestMapping(path = "/country-info/{countryCode}") public CountryDto
-	 * getCountryInfo(@PathVariable String countryCode) { return
-	 * userService.getCountryInfo(countryCode);
-	 * 
-	 * }
-	 */
 }
