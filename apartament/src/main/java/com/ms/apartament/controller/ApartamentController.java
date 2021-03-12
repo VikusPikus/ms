@@ -27,5 +27,10 @@ public class ApartamentController {
 	public List<Apartament> getAll() {
 		return apartamentService.findAll();
 	}
+	
+	@GetMapping("/hello")
+	public String hello() {
+		return "hello from apartament service";
+	}
 
 }

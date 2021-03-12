@@ -4,7 +4,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @FeignClient(name = "country-service")
-public interface ServiceFeignClient {
+public interface CountryServiceFeignClient {
 
 	@GetMapping("/country-service/hello")
 	public String getHello();

@@ -23,7 +23,13 @@ public class UserController {
 	
 	@RequestMapping(path = "/hello-from-country")
     public String getHelloFromCountry() {
-        String result = userService.helloFrom();
+        String result = userService.helloFromCountry();
+        return result;
+    }
+	
+	@RequestMapping(path = "/hello-from-apartament")
+    public String getHelloFromApartament() {
+        String result = userService.helloFromApartament();
         return result;
     }
 

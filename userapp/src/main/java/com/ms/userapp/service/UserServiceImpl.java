@@ -5,14 +5,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 	
-	private final ServiceFeignClient serviceFeignClient;
+	private final CountryServiceFeignClient countryServiceFeignClient;
+	private final ApartamentServiceFeignClient apartamentServiceFeignClient;
 	
-	public UserServiceImpl(ServiceFeignClient serviceFeignClient) {
-		this.serviceFeignClient = serviceFeignClient;
+	public UserServiceImpl(CountryServiceFeignClient countryServiceFeignClient,
+			ApartamentServiceFeignClient apartamentServiceFeignClient) {
+		this.countryServiceFeignClient = countryServiceFeignClient;
+		this.apartamentServiceFeignClient = apartamentServiceFeignClient;
 	}
 
-	public String helloFrom() {
-		String result = serviceFeignClient.getHello();
+	@Override
+	public String helloFromCountry() {
+		String result = countryServiceFeignClient.getHello();
+		return result;
+	}
+
+	@Override
+	public String helloFromApartament() {
+		String result = apartamentServiceFeignClient.getHello();
 		return result;
 	}
 	
