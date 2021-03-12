@@ -10,4 +10,6 @@ public interface ApartamentService {
 	
 	public List<Apartament> findAll();
 
+	public List<Apartament> findAllByCountryCode(String countryCode);
+
 }

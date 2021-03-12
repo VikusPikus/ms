@@ -26,6 +26,11 @@ public class ApartamentServiceImpl implements ApartamentService {
 	public Apartament findById(Long id) {
 		return apartamentRepository.findById(id).get();
 	}
+	
+	@Override
+	public List<Apartament> findAllByCountryCode(String countryCode) {
+		return apartamentRepository.findAllByCountryCode(countryCode);
+	}
 
 	@Override
 	public List<Apartament> findAll() {

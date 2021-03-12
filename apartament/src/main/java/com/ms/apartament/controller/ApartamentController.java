@@ -2,9 +2,12 @@ package com.ms.apartament.controller;
 
 import java.util.List;
 
+import javax.ws.rs.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,6 +29,11 @@ public class ApartamentController {
 	@GetMapping(value = "/apartament", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Apartament> getAll() {
 		return apartamentService.findAll();
+	}
+	
+	@GetMapping(value = "/apartament/{countryCode}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Apartament> getAll(@PathVariable String countryCode) {
+		return apartamentService.findAllByCountryCode(countryCode);
 	}
 	
 	@GetMapping("/hello")
