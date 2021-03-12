@@ -12,7 +12,7 @@ import com.ms.apartament.model.Apartament;
 import com.ms.apartament.service.ApartamentService;
 
 @RestController
-@RequestMapping("/service")
+@RequestMapping("/apartament-service")
 public class ApartamentController {
 	
 	@Autowired

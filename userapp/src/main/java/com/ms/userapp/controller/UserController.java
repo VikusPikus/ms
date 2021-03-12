@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ms.userapp.service.UserService;
 
 @RestController
-@RequestMapping("/userservice")
+@RequestMapping("/user-service")
 public class UserController {
 	
 	private final UserService userService;
@@ -18,7 +18,7 @@ public class UserController {
 
 	@GetMapping("/status")
 	public String status() {
-		return "userservice is up";
+		return "user service is up";
 	}
 	
 	@RequestMapping(path = "/hello-from-country")
