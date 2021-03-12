@@ -1,9 +1,14 @@
 package com.ms.userapp.controller;
 
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ms.userapp.model.CountryDto;
 import com.ms.userapp.service.UserService;
 
 @RestController
@@ -27,10 +32,23 @@ public class UserController {
         return result;
     }
 	
+	@RequestMapping(path = "/country-info")
+    public ResponseEntity<CountryDto> getCountryInfo() {
+		ResponseEntity<CountryDto> result = userService.getCountryInfo();
+        return result;
+    }
+	
 	@RequestMapping(path = "/hello-from-apartament")
     public String getHelloFromApartament() {
         String result = userService.helloFromApartament();
         return result;
     }
-
+	
+	/*
+	 * @RequestMapping(path = "/country-info/{countryCode}") public CountryDto
+	 * getCountryInfo(@PathVariable String countryCode) { return
+	 * userService.getCountryInfo(countryCode);
+	 * 
+	 * }
+	 */
 }

@@ -1,5 +1,6 @@
 package com.ms.country.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,15 +30,27 @@ public class CountryController {
 		return countryService.findAll();
 	}
 	
-	@GetMapping("/country/{code}")
-	public Country getByCountryCode(@PathVariable String code) {
-		Country result = countryService.findByCountryCode(code);
+	@GetMapping(value = "/country/{countryCode}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Country getByCountryCode(@PathVariable String countryCode) {
+		Country result = countryService.findByCountryCode(countryCode);
 		return result;
 	}
 	
 	@GetMapping("/hello")
 	public String getHello() {
 		return "Hello from country service";
+	}
+	
+	@GetMapping("/hello2")
+	public Country getHello2() {
+		Country result = countryService.findByCountryCode("UA");
+		return result;
+	}
+	
+	@GetMapping("/countryi")
+	public Country getCountryInfo() {
+		Country result = countryService.findByCountryCode("UA");
+		return result;
 	}
 	
 }
