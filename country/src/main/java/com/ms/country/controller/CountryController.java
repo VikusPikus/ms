@@ -13,7 +13,7 @@ import com.ms.country.model.Country;
 import com.ms.country.service.CountryService;
 
 @RestController
-@RequestMapping("/service")
+@RequestMapping("/country-service")
 public class CountryController {
 	
 	@Autowired
@@ -35,9 +35,9 @@ public class CountryController {
 		return result;
 	}
 	
-	@GetMapping("/service/hello")
+	@GetMapping("/hello")
 	public String getHello() {
-		return "Hello from country";
+		return "Hello from country service";
 	}
 	
 }
