@@ -32,7 +32,7 @@ public class ApartamentController {
 	}
 	
 	@GetMapping(value = "/apartament/{countryCode}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Apartament> getAll(@PathVariable String countryCode) {
+	public List<Apartament> getAllByCountryCode(@PathVariable String countryCode) {
 		return apartamentService.findAllByCountryCode(countryCode);
 	}
 	

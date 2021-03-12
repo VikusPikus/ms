@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.ms.userapp.model.ApartamentDto;
 import com.ms.userapp.model.CountryDto;
 
 @Service
@@ -34,6 +35,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public ResponseEntity<CountryDto> getCountryInfo(String countryCode) {
 		ResponseEntity<CountryDto> result = countryServiceFeignClient.getByCountryCode(countryCode);
+		return result;
+	}
+
+	@Override
+	public ResponseEntity<List<ApartamentDto>> getApartamentFromCountryInfo(String countryCode) {
+		ResponseEntity<List<ApartamentDto>> result = apartamentServiceFeignClient.getAllByCountryCode(countryCode);
 		return result;
 	}
 	
