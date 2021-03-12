@@ -1,0 +1,19 @@
+CREATE SCHEMA `countries` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+
+CREATE TABLE `countries`.`new_table` (
+  `id` INT NOT NULL,
+  `country_code` VARCHAR(2) NOT NULL,
+  `visa_regim` VARCHAR(45) NULL,
+  `covid_restriction` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `country_code_UNIQUE` (`country_code` ASC) VISIBLE);
+  
+  ALTER TABLE `countries`.`new_table` 
+RENAME TO  `countries`.`countries` ;
+
+INSERT INTO `countries`.`countries` (`id`, `country_code`, `visa_regim`, `covid_restriction`) VALUES ('1', 'UA', 'no', 'no');
+INSERT INTO `countries`.`countries` (`id`, `country_code`, `visa_regim`, `covid_restriction`) VALUES ('2', 'US', 'yes', 'medical certificate');
+INSERT INTO `countries`.`countries` (`id`, `country_code`, `visa_regim`, `covid_restriction`) VALUES ('3', 'TR', 'no', 'medical certificate');
+INSERT INTO `countries`.`countries` (`id`, `country_code`, `visa_regim`, `covid_restriction`) VALUES ('4', 'ME', 'no', 'medical certificate');
+INSERT INTO `countries`.`countries` (`id`, `country_code`, `visa_regim`, `covid_restriction`) VALUES ('5', 'PL', 'yes', 'medical certificate');
+INSERT INTO `countries`.`countries` (`id`, `country_code`, `visa_regim`, `covid_restriction`) VALUES ('6', 'EG', 'no', 'medical certificate');
