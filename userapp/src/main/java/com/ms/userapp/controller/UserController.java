@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ms.userapp.model.ApartamentDto;
 import com.ms.userapp.model.CountryDto;
+import com.ms.userapp.model.TravelInfoDto;
 import com.ms.userapp.service.UserService;
 
 @RestController
@@ -48,6 +49,12 @@ public class UserController {
 	@RequestMapping(path = "/apartament-info/{countryCode}")
     public ResponseEntity<List<ApartamentDto>> getApartamentFromCountryInfo(@PathVariable String countryCode) {
 		ResponseEntity<List<ApartamentDto>> result = userService.getApartamentFromCountryInfo(countryCode);
+        return result;
+    }
+	
+	@RequestMapping(path = "/travel-info/{countryCode}")
+    public TravelInfoDto getTravelInfoByCountryInfo(@PathVariable String countryCode) {
+		TravelInfoDto result = userService.getTravelInfo(countryCode);
         return result;
     }
 	
