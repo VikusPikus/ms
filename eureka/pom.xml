@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.4.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ms.project</groupId>
 	<artifactId>eureka</artifactId>
@@ -55,5 +56,77 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>docker</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>io.fabric8</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+						<version>0.20.1</version>
+						<configuration>
+							<images>
+								<image>
+									<name>eureka-service</name>
+									<build>
+										<from>openjdk:latest</from>
+										<assembly>
+											<descriptorRef>artifact</descriptorRef>
+										</assembly>
+										<cmd>java -jar maven/${project.name}-${project.version}.jar</cmd>
+									</build>
+								</image>
+							</images>
+						</configuration>
+						<executions>
+							<execution>
+								<id>docker:build</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>docker:start</id>
+								<phase>install</phase>
+								<goals>
+									<goal>run</goal>
+									<goal>logs</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>dcos</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>dcos</groupId>
+						<artifactId>dcos-maven-plugin</artifactId>
+						<version>0.2</version>
+						<configuration>
+							<dcosUrl>http://DCOS-ElasticLoadBa-OG73USRXKTX-912507967.us-west-1.elb.amazonaws.com/</dcosUrl>
+							<deployable>group</deployable>
+							<ignoreSslCertificate>true</ignoreSslCertificate>
+						</configuration>
+						<executions>
+							<execution>
+								<id>dcos:deploy</id>
+								<phase>install</phase>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
