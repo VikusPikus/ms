@@ -76,7 +76,7 @@
                         <configuration>
                             <images>
                                 <image>
-                                    <name>demodocweb</name>
+                                    <name>demo</name>
                                     <build>
                                         <from>openjdk:latest</from>
                                         <assembly>

@@ -69,7 +69,7 @@
 						<configuration>
 							<images>
 								<image>
-									<name>eureka-service</name>
+									<name>eureka</name>
 									<build>
 										<from>openjdk:latest</from>
 										<assembly>

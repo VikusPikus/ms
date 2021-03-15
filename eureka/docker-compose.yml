@@ -1,6 +1,12 @@
 version: '3'
 services:
   eureka:
-     image: eureka-service
+     image: eureka
      ports:
        - 8761:8761
+  app:
+     image: demo
+     ports:
+       - 8084:8084
+     links:
+      - eureka
