@@ -1,5 +1,3 @@
 FROM openjdk:jdk-alpine
-
-COPY /eureka/target/eureka-0.0.1-SNAPSHOT.jar /deployments/
-
-CMD java -jar /deployments/eureka-0.0.1-SNAPSHOT.jar
+COPY target/eureka-0.0.1-SNAPSHOT.jar eureka-ms.jar
+ENTRYPOINT ["java","-jar","eureka-ms.jar"]

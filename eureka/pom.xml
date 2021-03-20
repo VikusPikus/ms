@@ -15,7 +15,7 @@
 	<name>eureka</name>
 	<description>part of ms project</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 		<spring-cloud.version>2020.0.1</spring-cloud.version>
 	</properties>
 	<dependencies>
@@ -69,7 +69,7 @@
 						<configuration>
 							<images>
 								<image>
-									<name>eureka</name>
+									<name>eureka-server</name>
 									<build>
 										<from>openjdk:latest</from>
 										<assembly>
