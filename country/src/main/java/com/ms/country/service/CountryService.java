@@ -11,5 +11,4 @@ public interface CountryService {
 	public Country findByCountryCode(String countryCode);
 	
 	public List<Country> findAll();
-
 }
