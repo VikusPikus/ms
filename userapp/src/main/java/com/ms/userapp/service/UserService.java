@@ -9,9 +9,6 @@ import com.ms.userapp.model.CountryDto;
 import com.ms.userapp.model.TravelInfoDto;
 
 public interface UserService {
-	public String helloFromCountry();
-	public String helloFromApartament();
-	
 	public ResponseEntity<CountryDto> getCountryInfo(String countryCode);
 	
 	public ResponseEntity<List<ApartamentDto>> getApartamentFromCountryInfo(String countryCode);

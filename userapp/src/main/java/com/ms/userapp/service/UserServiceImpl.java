@@ -25,18 +25,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String helloFromCountry() {
-		String result = countryServiceFeignClient.getHello();
-		return result;
-	}
-
-	@Override
-	public String helloFromApartament() {
-		String result = apartamentServiceFeignClient.getHello();
-		return result;
-	}
-
-	@Override
 	public ResponseEntity<CountryDto> getCountryInfo(String countryCode) {
 		ResponseEntity<CountryDto> result = countryServiceFeignClient.getByCountryCode(countryCode);
 		return result;
