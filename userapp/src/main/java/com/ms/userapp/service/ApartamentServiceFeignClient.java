@@ -12,6 +12,12 @@ import com.ms.userapp.model.ApartamentDto;
 @FeignClient(name = "apartament-service")
 public interface ApartamentServiceFeignClient {
 
-	@GetMapping("/apartament-service/apartament/{countryCode}")
+	/*
+	 * @GetMapping("/apartament-service/apartament/{countryCode}") public
+	 * ResponseEntity<List<ApartamentDto>> getAllByCountryCode(@PathVariable String
+	 * countryCode);
+	 */
+	
+	@GetMapping("/apartament/{countryCode}")
 	public ResponseEntity<List<ApartamentDto>> getAllByCountryCode(@PathVariable String countryCode);
 }

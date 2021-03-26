@@ -1,7 +1,10 @@
 package com.ms.country.service;
 
+import java.sql.SQLSyntaxErrorException;
 import java.util.List;
 
+import org.hibernate.exception.SQLGrammarException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.ms.country.model.Country;
